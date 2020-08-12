@@ -1,0 +1,6 @@
+projectKey=sonar-nodejs-3
+serverUrl=http://localhost:9000
+serverVersion=8.4.1.35646
+dashboardUrl=http://localhost:9000/dashboard?id=sonar-nodejs-3
+ceTaskId=AXPh8vZiZDOQaZdiEBLu
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXPh8vZiZDOQaZdiEBLu
