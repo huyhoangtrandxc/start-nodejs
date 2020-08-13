@@ -1,4 +1,3 @@
-CODE_CHANGE = getGitChanges()
 pipeline { // day la top level
 	 
 	agent any // noi bat dau thuc thi
@@ -20,7 +19,7 @@ pipeline { // day la top level
 		stage("build") { 
       when {
         expression {
-          BRANCH_NAME == 'dev' && CODE_CHANGE == true
+          BRANCH_NAME == 'dev'
         }
       }
 
