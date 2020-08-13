@@ -6,7 +6,14 @@ pipeline { // day la top level
 		
 		stage("build") { 
 			steps {
+        // sh 'npm install'
+        // sh 'npm build'
 				echo 'building the application'
+
+        // groovy
+        script {
+          def test = 2 + 2 > 3 ? 'cool' : 'not cool' 
+        }
 			}
 		}
 
