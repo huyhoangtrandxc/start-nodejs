@@ -56,9 +56,9 @@ pipeline { // day la top level
         // echo "deploying with ${SERVICE_CREDENTIALS}"
 
         withCredentials([ // can cai dat credentials binding plugin
-          usernamePassword(credentials: 'github', usernameVariable: 'USER', passwordVariable: 'PWD')
+          usernamePassword(credentialsId: 'github', usernameVariable: 'USER', passwordVariable: 'PWD')
         ]) {
-          sh "some script $USER $PWD"
+          echo "some script $USER $PWD"
         }
 			}
 		}
