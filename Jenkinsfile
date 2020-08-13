@@ -64,21 +64,21 @@ pipeline { // day la top level
 			}
 		}
 
-    // thuc hien sau khi all stage xong suck email...
-    post {
-
-      // luon thuc hien bat ke thanh cong hay that bai
-      always {
-        echo 'ALWAYs'
-      }
-
-      success {
-        echo 'SUCCESS'
-      }
-
-      failure {
-        echo 'FAILURE'
-      }
-    }
 	}
+  // thuc hien sau khi all stage xong suck email...
+  post {
+
+    // luon thuc hien bat ke thanh cong hay that bai
+    always {
+      echo 'ALWAYs'
+    }
+
+    success {
+      echo 'SUCCESS'
+    }
+
+    failure {
+      echo 'FAILURE'
+    }
+  }
 }
