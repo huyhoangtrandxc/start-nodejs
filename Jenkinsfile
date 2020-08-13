@@ -69,15 +69,15 @@ pipeline { // day la top level
 
       // luon thuc hien bat ke thanh cong hay that bai
       always {
-        //
+        echo 'ALWAYs'
       }
 
       success {
-        //
+        echo 'SUCCESS'
       }
 
       failure {
-        //
+        echo 'FAILURE'
       }
     }
 	}
