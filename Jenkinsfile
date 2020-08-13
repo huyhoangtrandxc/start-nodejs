@@ -13,6 +13,7 @@ pipeline { // day la top level
         // groovy
         script {
           def test = 2 + 2 > 3 ? 'cool' : 'not cool' 
+          echo test
         }
 			}
 		}
