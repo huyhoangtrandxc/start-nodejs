@@ -19,7 +19,7 @@ pipeline { // day la top level
 		stage("build") { 
       when {
         expression {
-          BRANCH_NAME == 'dev'
+          BRANCH_NAME == 'master'
         }
       }
 
@@ -40,7 +40,7 @@ pipeline { // day la top level
 		stage("test") { 
       when {
         expression {
-          BRANCH_NAME == 'dev' && params.executeTests
+          BRANCH_NAME == 'master' && params.executeTests
         }
       }
 
