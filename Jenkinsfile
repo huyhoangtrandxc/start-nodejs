@@ -20,7 +20,7 @@ pipeline { // day la top level
 		stage("build") { 
       when {
         expression {
-          BRANCH_NAME == 'dev' && CODE_CHANGE == TRUE
+          BRANCH_NAME == 'dev' && CODE_CHANGE == true
         }
       }
 
