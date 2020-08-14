@@ -1,3 +1,4 @@
+def gv
 pipeline { // day la top level
 	 
 	agent any // noi bat dau thuc thi
@@ -9,13 +10,21 @@ pipeline { // day la top level
     maven 'Maven' // Maven configure trong global tool
   }
   parameters {
-    string(name: 'VERSION', defaultValue: '', description: 'version to deploy on prod')
+    // string(name: 'VERSION', defaultValue: '', description: 'version to deploy on prod')
     choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], description: '')
     booleanParam(name: 'executeTests', defaultValue: true, description: '')
   }
 
-	stages { // noi work happen
-		
+	stages { // work happen
+  
+    stage("init") {
+      steps {
+        script {
+          gv = load "script.groovy"
+        }
+      }
+    }
+
 		stage("build") { 
       when {
         expression {
@@ -26,16 +35,18 @@ pipeline { // day la top level
 			steps {
         // sh 'npm install'
         // sh 'npm build'
-				echo 'building the application'
+				// echo 'building the application'
         echo "building version ${NEW_VERSION}"
 
         // groovy 
-        // script {
-        //   def test = 2 + 2 > 3 ? 'cool' : 'not cool' 
-        //   echo test
-        // }
-			}
+        script {
+          //   def test = 2 + 2 > 3 ? 'cool' : 'not cool' 
+          //   echo test
+          gv.buildApp()
+        }
+      }
 		}
+	}
 
 		stage("test") { 
       when {
@@ -45,15 +56,22 @@ pipeline { // day la top level
       }
 
 			steps {
-				echo 'testing the application'
+				// echo 'testing the application'
+        script {
+          gv.testApp()
+        }
 			}
 		}
 
 		stage("deploy") { 
 			steps {
-				echo 'deploying the application'
+				// echo 'deploying the application'
         echo "deploying version ${params.VERSION}"
         // echo "deploying with ${SERVICE_CREDENTIALS}"
+
+        script {
+          gv.deployApp()
+        }
 
         withCredentials([ // can cai dat credentials binding plugin
           usernamePassword(credentialsId: 'github', usernameVariable: 'USER', passwordVariable: 'PWD')
