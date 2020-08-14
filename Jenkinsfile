@@ -81,7 +81,6 @@ pipeline { // day la top level
 			}
 		}
 
-	}
   // thuc hien sau khi all stage xong suck email...
   post {
 
